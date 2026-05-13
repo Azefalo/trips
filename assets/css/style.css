@@ -1,0 +1,1220 @@
+/* ==========================================================================
+   Azefalo / Trips — Main Stylesheet
+   Site: azefalo.github.io/trips/
+   Aesthetic: minimalist, nature-inspired, pastel tones
+   ========================================================================== */
+
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+
+:root {
+  /* Backgrounds */
+  --color-bg:           #FAF8F5;
+  --color-bg-card:      #FFFFFF;
+  --color-bg-muted:     #F2EFE9;
+
+  /* Brand palette */
+  --color-primary:      #6B705C;
+  --color-primary-dark: #4E5243;
+  --color-secondary:    #A5A58D;
+  --color-accent:       #CB997E;
+  --color-accent-light: #DDBEA9;
+
+  /* Text */
+  --color-text:         #3D3D3D;
+  --color-text-muted:   #7A7A6E;
+  --color-text-inverse: #FAF8F5;
+
+  /* UI */
+  --color-border:       #DDD8CF;
+  --color-shadow:       rgba(61, 61, 61, 0.08);
+  --color-shadow-hover: rgba(61, 61, 61, 0.16);
+
+  /* Fonts */
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'Lato', system-ui, sans-serif;
+
+  /* Type scale (1.25 major third) */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.125rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.563rem;
+  --text-2xl:  1.953rem;
+  --text-3xl:  2.441rem;
+  --text-4xl:  3.052rem;
+
+  /* Spacing (8px base) */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Shape */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm:    0 1px 3px var(--color-shadow);
+  --shadow-md:    0 4px 12px var(--color-shadow);
+  --shadow-lg:    0 8px 24px var(--color-shadow);
+  --shadow-hover: 0 8px 24px var(--color-shadow-hover);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Layout */
+  --container-max:     1100px;
+  --container-padding: var(--space-6);
+}
+
+/* ==========================================================================
+   1. Reset & Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   2. Layout Utilities
+   ========================================================================== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--space-20) 0;
+}
+
+/* ==========================================================================
+   3. Section Header Pattern
+   ========================================================================== */
+
+.section-header {
+  margin-bottom: var(--space-12);
+}
+
+.section-title {
+  font-size: var(--text-3xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+.section-subtitle {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+  max-width: 560px;
+}
+
+/* ==========================================================================
+   4. Button System
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Filled terracotta accent button */
+.btn--accent {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent);
+}
+
+.btn--accent:hover {
+  background-color: #b8856b;
+  border-color: #b8856b;
+  box-shadow: var(--shadow-md);
+}
+
+.btn--accent:active {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Outline sage green button */
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--outline:active {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+}
+
+/* ==========================================================================
+   5. Site Header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base);
+}
+
+.site-header.scrolled {
+  border-bottom-color: var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+/* Logo */
+.site-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.logo-name {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.logo-divider {
+  color: var(--color-secondary);
+  font-weight: 400;
+  margin: 0 var(--space-1);
+}
+
+.logo-section {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+}
+
+/* Navigation */
+.site-nav {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  padding-bottom: var(--space-1);
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.nav-link[aria-current="page"]::after {
+  width: 100%;
+  background: var(--color-accent);
+}
+
+/* ==========================================================================
+   6. Mobile Navigation
+   ========================================================================== */
+
+/* Hamburger toggle button */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.nav-toggle:hover {
+  background-color: var(--color-bg-muted);
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: var(--radius-pill);
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+  transform-origin: center;
+}
+
+/* Hamburger to X animation */
+body.nav-open .nav-toggle__bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+body.nav-open .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+body.nav-open .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile nav panel */
+body.nav-open .site-nav {
+  display: block;
+}
+
+.site-nav {
+  /* Mobile: hidden by default, shown via body.nav-open */
+}
+
+/* When nav-open on mobile, nav renders below header */
+body.nav-open .site-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  z-index: 99;
+}
+
+body.nav-open .nav-list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: var(--space-4) 0;
+}
+
+body.nav-open .nav-link {
+  display: block;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-base);
+}
+
+body.nav-open .nav-link::after {
+  display: none;
+}
+
+body.nav-open .nav-link:hover {
+  background-color: var(--color-bg-muted);
+}
+
+body.nav-open .nav-link[aria-current="page"] {
+  background-color: var(--color-bg-muted);
+  border-left: 3px solid var(--color-accent);
+  padding-left: calc(var(--space-6) - 3px);
+}
+
+/* ==========================================================================
+   7. Hero Section (Homepage)
+   ========================================================================== */
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Organic dot texture via pseudo-element */
+.hero__texture {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(165, 165, 141, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-6);
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  font-size: var(--text-3xl);
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  line-height: 1.15;
+  margin-bottom: var(--space-4);
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.hero__subtitle {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin: var(--space-6) auto;
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   8. Trips Grid Section
+   ========================================================================== */
+
+.trips-section {
+  background: var(--color-bg);
+}
+
+.trips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+/* ==========================================================================
+   9. Trip Card
+   ========================================================================== */
+
+.trip-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.trip-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.trip-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.trip-card__image-wrap {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.trip-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.trip-card:hover .trip-card__image {
+  transform: scale(1.05);
+}
+
+.trip-card__body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.trip-card__tag {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.trip-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.trip-card__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.trip-card__excerpt {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.trip-card__cta {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: var(--space-2);
+  transition: color var(--transition-fast);
+}
+
+.trip-card:hover .trip-card__cta {
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   10. About Section
+   ========================================================================== */
+
+.about-section {
+  background: var(--color-bg-muted);
+}
+
+.about-section__inner {
+  max-width: 680px;
+}
+
+.about-section__text {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-top: var(--space-6);
+}
+
+.about-section__text + .about-section__text {
+  margin-top: var(--space-4);
+}
+
+.about-section__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   11. Site Footer
+   ========================================================================== */
+
+.site-footer {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-12) 0;
+  text-align: center;
+}
+
+.site-footer__brand {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-text-inverse);
+}
+
+.site-footer__copy {
+  color: rgba(250, 248, 245, 0.75);
+  font-size: var(--text-sm);
+}
+
+.site-footer__nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.site-footer__nav a {
+  color: var(--color-accent-light);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.site-footer__nav a:hover {
+  color: white;
+}
+
+.site-footer__legal {
+  font-size: var(--text-xs);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   12. Trip Hero (Trip Page)
+   ========================================================================== */
+
+.trip-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 360px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.trip-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.trip-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trip-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(61, 61, 61, 0.7) 0%,
+    rgba(61, 61, 61, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+.trip-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-10) 0;
+  color: var(--color-text-inverse);
+  width: 100%;
+}
+
+.trip-hero__tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-3);
+}
+
+.trip-hero__title {
+  font-size: var(--text-3xl);
+  font-family: var(--font-serif);
+  color: white;
+  margin-bottom: var(--space-4);
+  line-height: 1.15;
+}
+
+.trip-hero__meta {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  font-size: var(--text-sm);
+  color: rgba(250, 248, 245, 0.85);
+  align-items: center;
+}
+
+.trip-hero__meta span::before {
+  content: '\00B7';
+  margin-right: var(--space-4);
+}
+
+.trip-hero__meta span:first-child::before {
+  content: none;
+  margin-right: 0;
+}
+
+/* ==========================================================================
+   13. Trip Overview Strip
+   ========================================================================== */
+
+.trip-overview {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.trip-overview__inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  padding: var(--space-6) 0;
+}
+
+.trip-overview__stat {
+  text-align: center;
+}
+
+.trip-overview__label {
+  display: block;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  font-family: var(--font-sans);
+  margin-bottom: var(--space-1);
+}
+
+.trip-overview__value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   14. Trip Intro (Map + Text Two-Column)
+   ========================================================================== */
+
+.trip-intro__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.trip-intro__text {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.trip-intro__text p + p {
+  margin-top: var(--space-4);
+}
+
+/* ==========================================================================
+   15. Map Embed (Reusable — My Maps & Polarsteps)
+   ========================================================================== */
+
+.map-embed {
+  width: 100%;
+}
+
+.map-embed__wrapper {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--color-bg-muted);
+}
+
+.map-embed__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Polarsteps 16:9 override */
+.polarsteps-embed .map-embed__wrapper {
+  padding-bottom: 56.25%;
+}
+
+/* ==========================================================================
+   16. Itinerary Section
+   ========================================================================== */
+
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.day-card {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.day-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.day-card__number {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.day-card__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.day-card__location {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+
+.day-card__body {
+  padding: var(--space-6);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.day-card__highlights {
+  margin-top: var(--space-4);
+  padding-left: var(--space-6);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.day-card__highlights li {
+  margin-bottom: var(--space-2);
+}
+
+.day-card__tip {
+  margin: 0 var(--space-6) var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent-light);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  color: var(--color-primary-dark);
+  line-height: 1.6;
+}
+
+.tip-icon {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  font-style: normal;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   17. Polarsteps Section
+   ========================================================================== */
+
+.polarsteps-section {
+  background: var(--color-bg-muted);
+}
+
+/* ==========================================================================
+   18. Tips Section
+   ========================================================================== */
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.tip-card {
+  background: var(--color-bg-muted);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.tip-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.tip-card__icon {
+  font-size: var(--text-2xl);
+  display: block;
+  margin-bottom: var(--space-4);
+  line-height: 1;
+}
+
+.tip-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.tip-card__body {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   19. Photo Gallery
+   ========================================================================== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.gallery__item {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+/* Wide items: single column on mobile/tablet */
+.gallery__item--wide {
+  grid-column: span 1;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  display: block;
+}
+
+.gallery__item:hover .gallery__img {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   20. Back Link
+   ========================================================================== */
+
+.back-link {
+  margin: var(--space-8) 0 var(--space-16);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--color-accent);
+  gap: var(--space-3);
+}
+
+.back-link::before {
+  content: '\2190';
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.back-link:hover::before {
+  transform: translateX(-2px);
+}
+
+/* ==========================================================================
+   21. Lazy Load Fade-In
+   ========================================================================== */
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.lazy.loaded {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   22. Utility
+   ========================================================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   23. Responsive Breakpoints (Mobile-First)
+   ========================================================================== */
+
+/* Tablet >= 640px */
+@media (min-width: 640px) {
+  .trips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery__item {
+    height: 240px;
+  }
+
+  .trip-overview__inner {
+    gap: var(--space-12);
+  }
+}
+
+/* Desktop >= 1024px */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Reset mobile nav-open overrides at desktop */
+  body.nav-open .site-nav {
+    position: static;
+    width: auto;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  body.nav-open .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+    padding: 0;
+  }
+
+  body.nav-open .nav-link {
+    display: inline;
+    padding: var(--space-1) 0;
+    font-size: var(--text-sm);
+  }
+
+  body.nav-open .nav-link::after {
+    display: block;
+  }
+
+  body.nav-open .nav-link:hover {
+    background-color: transparent;
+  }
+
+  body.nav-open .nav-link[aria-current="page"] {
+    background-color: transparent;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .trips-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tips-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 260px;
+  }
+
+  .gallery__item {
+    height: auto;
+  }
+
+  .gallery__item--wide {
+    grid-column: span 2;
+  }
+
+  .trip-intro__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .hero__title {
+    font-size: var(--text-4xl);
+  }
+
+  .trip-hero__title {
+    font-size: var(--text-4xl);
+  }
+}

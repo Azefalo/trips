@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Travel tips and itineraries, honestly told. Routes, maps, and stories from real trips around the world.">
+  <meta property="og:title" content="Azefalo — Trips">
+  <meta property="og:description" content="Travel tips and itineraries, honestly told.">
+  <meta property="og:url" content="https://azefalo.github.io/trips/">
+  <meta property="og:type" content="website">
+  <title>Azefalo — Trips</title>
+  <link rel="icon" href="/trips/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/trips/assets/css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SITE HEADER — sticky, frosted glass
+       ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="/trips/" class="site-logo" aria-label="Azefalo Trips — Home">
+        <span class="logo-name">Azefalo</span>
+        <span class="logo-divider">/</span>
+        <span class="logo-section">Trips</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/trips/" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="#trips" class="nav-link">All Trips</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__texture" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="hero__eyebrow">Travel journal</p>
+        <h1 class="hero__title" id="hero-title">Wander with<br><em>intention.</em></h1>
+        <p class="hero__subtitle">Travel tips and itineraries, honestly told. Connecting routes, maps, and stories from real trips.</p>
+        <a href="#trips" class="btn btn--accent">Explore the trips</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRIPS GRID SECTION
+         ============================================================ -->
+    <section class="section trips-section" id="trips" aria-labelledby="trips-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="trips-title">All Trips</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <p class="section-subtitle">Every place has a story. Here are mine.</p>
+        </div>
+        <div class="trips-grid">
+
+          <article class="trip-card">
+            <a href="/trips/trips/iceland/" class="trip-card__link" aria-label="Read about Iceland — Fire &amp; Ice">
+              <div class="trip-card__image-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&q=80"
+                  alt="Skógafoss waterfall in Iceland with a rainbow"
+                  class="trip-card__image lazy"
+                  loading="lazy"
+                  width="800" height="533"
+                >
+              </div>
+              <div class="trip-card__body">
+                <span class="trip-card__tag">Iceland</span>
+                <h3 class="trip-card__title">Fire &amp; Ice</h3>
+                <p class="trip-card__meta">
+                  <time datetime="2024">2024</time>
+                  <span class="trip-card__duration"> · 10 days</span>
+                </p>
+                <p class="trip-card__excerpt">Waterfalls, geysers, black sand beaches and the Northern Lights. A ring road adventure through one of Earth's most dramatic landscapes.</p>
+                <span class="trip-card__cta" aria-hidden="true">Read more →</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+         ============================================================ -->
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-section__inner">
+          <div class="section-header">
+            <h2 class="section-title" id="about-title">About these travels</h2>
+            <div class="section-divider" aria-hidden="true"></div>
+          </div>
+          <div class="about-section__body">
+            <p>I'm João, and this is where I keep my travel notes — the real itineraries, the maps I actually used, and the tips I wish I'd had before I left. No sponsored posts, no clickbait. Just honest notes from someone who loves to wander thoughtfully.</p>
+            <p style="margin-top: 1rem;">Each trip is connected to its full Polarsteps log (every step, every photo) and a Google My Maps route you can open on your phone and follow yourself.</p>
+            <div class="about-section__links">
+              <a href="https://www.polarsteps.com/JoaoGabrielButtow" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                Polarsteps profile ↗
+              </a>
+              <a href="https://www.google.com/maps/d/u/0/edit?mid=1-ZPY49CbC0v9MiawCprG2hSL2M87fTs" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                My Maps ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SITE FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__brand">Azefalo / Trips</p>
+      <p class="site-footer__copy">Honest travel, slow travel. All words and photos are my own.</p>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="https://github.com/Azefalo/trips" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.polarsteps.com/JoaoGabrielButtow" target="_blank" rel="noopener noreferrer">Polarsteps ↗</a>
+        <a href="https://azefalo.github.io" target="_blank" rel="noopener noreferrer">Main site ↗</a>
+      </nav>
+      <p class="site-footer__legal"><small>No ads. No tracking. No cookies.</small></p>
+    </div>
+  </footer>
+
+  <script src="/trips/assets/js/main.js" defer></script>
+
+</body>
+</html>
