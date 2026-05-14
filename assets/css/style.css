@@ -1206,8 +1206,19 @@ body.nav-open .nav-link[aria-current="page"] {
   }
 
   .trip-intro__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
+    display: block;
+  }
+
+  .trip-intro__inner::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .trip-intro .map-embed {
+    float: right;
+    width: 48%;
+    margin: 0 0 var(--space-6) var(--space-10);
   }
 
   .hero__title {
